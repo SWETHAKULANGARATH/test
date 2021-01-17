@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        ul li:first-of-type {
+            list-style: none;
+            margin-left: -1em;
+        }
+       
+    </style>
+</head>
+
+<body>
+
+    <input type='text' id='idea' placeholder="enter your string">
+    <input type='button' value='add to list' id='add1'>
+    <input type='button' value='remove item' id='rem1'>
+    <table>
+        <tr>
+            <td>
+    <ul id='nlist'>
+        <li>NUMBER</li>
+        
+    </ul></td>
+</tr></table>   
+<table>
+    <tr>
+        <td>
+    <ul id='anlist'>
+        <li>ALPHANUMERIC</li>
+    </ul></td>
+    </tr>
+</table>
+<table>
+    <tr>
+    <td>
+    <ul id='alist'>
+        <LI>ALPHABET</LI>
+    </ul></td>
+    </tr></table>
+</body>
+<script type="text/javascript">
+    document.getElementById("add1").onclick = function () {
+    
+        var text = document.getElementById("idea").value; 
+        var node = document.createElement("Li");
+        var textnode = document.createTextNode(text);
+        node.appendChild(textnode);
+      
+    document.getElementById("rem1").onclick = function () {
+        var text = document.getElementById("idea").value;
+        node.removeChild(textnode)
+   
+    }
+        if (text.match(/^[0-9]*$/)) {
+
+            document.getElementById("nlist").appendChild(node);
+        } else if (text.match(/^[A-Za-z]+$/)) {
+            
+            document.getElementById("alist").appendChild(node);
+        } else {
+            
+            document.getElementById("anlist").appendChild(node);
+        }
+
+}
+
+</script>
+
+</html>
